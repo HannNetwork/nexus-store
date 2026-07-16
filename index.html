@@ -10,10 +10,9 @@
     <style>
         body { 
             font-family: 'Plus Jakarta Sans', sans-serif; 
-            background-color: #FFFDF6; /* Khas Neubrutalism: Warm Off-White */
+            background-color: #FFFDF6; 
             color: #020617;
         }
-        /* Utility class untuk Hard Shadow khas Neubrutalism */
         .brutal-shadow {
             box-shadow: 6px 6px 0px 0px #020617;
         }
@@ -23,7 +22,6 @@
         .brutal-btn-shadow {
             box-shadow: 4px 4px 0px 0px #020617;
         }
-        /* Efek klik tombol fisik mantul */
         .brutal-btn-active:active {
             transform: translate(4px, 4px);
             box-shadow: 0px 0px 0px 0px #020617;
@@ -35,13 +33,7 @@
     <nav class="bg-[#FFFDF6] border-b-4 border-slate-950 sticky top-0 z-40">
         <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
             <div class="flex items-center gap-3 bg-[#A370F7] border-4 border-slate-950 p-2 brutal-shadow-sm">
-                <span class="font-extrabold text-slate-950 text-xl tracking-tighter">N.D</span>
-            </div>
-            <h1 class="text-xl sm:text-2xl font-extrabold tracking-tighter text-slate-950 uppercase hidden sm:block">
-                Nexus<span class="bg-[#FFDE4D] px-1 border-2 border-slate-950 ml-1">Digital</span>
-            </h1>
-            <span class="text-xs font-extrabold bg-[#22C55E] text-slate-950 border-4 border-slate-950 px-4 py-2 brutal-shadow-sm uppercase tracking-wider">
-                ⚡ LIVE PROCESS
+                <span class="font-extrabold text-slate-950 text-xl tracking-tighter">Nexus Digital</span>
             </span>
         </div>
     </nav>
@@ -69,7 +61,7 @@
         </div>
     </main>
 
-    <div id="variantModal" class="fixed inset-0 bg-slate-950/40 backdrop-blur-none z-50 flex items-center justify-center p-4 hidden relative">
+    <div id="variantModal" class="fixed inset-0 bg-slate-950/60 z-50 flex items-center justify-center p-4 hidden">
         <div class="bg-white border-4 border-slate-950 w-full max-w-md overflow-hidden brutal-shadow">
             <div class="px-6 py-5 border-b-4 border-slate-950 bg-[#FFDE4D] flex justify-between items-center">
                 <div>
@@ -82,7 +74,7 @@
         </div>
     </div>
 
-    <div id="paymentModal" class="fixed inset-0 bg-slate-950/40 backdrop-blur-none z-50 flex items-center justify-center p-4 hidden">
+    <div id="paymentModal" class="fixed inset-0 bg-slate-950/60 z-50 flex items-center justify-center p-4 hidden">
         <div class="bg-white border-4 border-slate-950 w-full max-w-md overflow-hidden brutal-shadow">
             <div class="px-6 py-5 border-b-4 border-slate-950 bg-[#4DEEEA] flex justify-between items-center">
                 <div>
@@ -127,7 +119,7 @@
 
     <script>
         // =========================================================================
-        // ⚙️ CONFIG UTAMA SUPABASE & WHATSAPP (Sama Persis Seperti Sebelumnya)
+        // ⚙️ CONFIG UTAMA SUPABASE & WHATSAPP
         // =========================================================================
         const SUPABASE_URL = "https://hxyljdmecmchbmtevfxs.supabase.co";
         const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imh4eWxqZG1lY21jaGJtdGV2ZnhzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODQyMDY0MTgsImV4cCI6MjA5OTc4MjQxOH0.MrwdBPEro83leZzDfe19jbedMXBIup3MpWB9M2KbR64";
@@ -155,16 +147,12 @@
         async function fetchProducts() {
             try {
                 const { data, error } = await _supabase.from('store_data').select('products_json').single();
-                if (error) {
-                    document.getElementById('product-grid').innerHTML = `<p class="col-span-full text-center text-rose-600 font-bold p-4">Gagal mengambil data: ${error.message}</p>`;
-                    return;
-                }
                 if (data) {
                     products = data.products_json;
                     renderStore();
                 }
             } catch (err) {
-                document.getElementById('product-grid').innerHTML = `<p class="col-span-full text-center text-rose-600 font-bold p-4">Terjadi gangguan koneksi database.</p>`;
+                console.error(err);
             }
         }
 
@@ -172,24 +160,18 @@
             const grid = document.getElementById('product-grid');
             grid.innerHTML = '';
             
-            if(!products || products.length === 0) {
-                grid.innerHTML = `<p class="col-span-full text-center text-slate-700 bg-white border-4 border-slate-950 p-6 font-extrabold brutal-shadow uppercase">Toko Kosong. Masukkan produk lewat Admin Panel!</p>`;
-                return;
-            }
-            
             products.forEach(p => {
                 const prices = p.variants && p.variants.length > 0 ? p.variants.map(v => v.price) : [0];
                 const minPrice = Math.min(...prices);
                 
-                // Menerjemahkan warna fintech lama ke warna neubrutalism pop yang solid
-                let brutalColor = "bg-[#FFDE4D]"; // Default Kuning
-                if (p.color.includes("red") || p.color.includes("rose")) brutalColor = "bg-[#FF6B6B]";
-                if (p.color.includes("blue") || p.color.includes("indigo")) brutalColor = "bg-[#A370F7]";
-                if (p.color.includes("green") || p.color.includes("emerald")) brutalColor = "bg-[#22C55E]";
-                if (p.color.includes("purple") || p.color.includes("pink")) brutalColor = "bg-[#F770A3]";
+                let brutalColor = "bg-[#FFDE4D]";
+                if (p.color.includes("red")) brutalColor = "bg-[#FF6B6B]";
+                if (p.color.includes("blue")) brutalColor = "bg-[#A370F7]";
+                if (p.color.includes("green")) brutalColor = "bg-[#22C55E]";
+                if (p.color.includes("purple")) brutalColor = "bg-[#F770A3]";
 
                 const card = document.createElement('div');
-                card.className = "bg-white border-4 border-slate-950 p-6 flex flex-col justify-between brutal-shadow transition-all duration-200 hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[8px_8px_0px_0px_rgba(2,6,23,1)] group";
+                card.className = "bg-white border-4 border-slate-950 p-6 flex flex-col justify-between brutal-shadow hover:translate-x-[-2px] hover:translate-y-[-2px] transition-all duration-200 group";
                 card.innerHTML = `
                     <div>
                         <div class="w-14 h-14 ${brutalColor} border-4 border-slate-950 flex items-center justify-center font-extrabold text-slate-950 text-2xl mb-5 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] group-hover:rotate-3 transition-transform">
@@ -202,29 +184,25 @@
                             <span class="inline-block bg-[#FFDE4D] border-2 border-slate-950 text-slate-950 font-extrabold text-lg px-2.5 py-0.5 mt-1">Rp ${minPrice.toLocaleString('id-ID')}</span>
                         </div>
                     </div>
-                    <button onclick="openVariants('${p.id}')" class="w-full mt-6 bg-[#A370F7] hover:bg-[#8e52e8] text-slate-950 font-extrabold py-3.5 border-4 border-slate-950 rounded-xl text-xs uppercase tracking-wider transition-all brutal-btn-shadow brutal-btn-active">
+                    <button id="btn-${p.id}" class="w-full mt-6 bg-[#A370F7] border-4 border-slate-950 text-slate-950 font-extrabold py-3.5 rounded-xl text-xs uppercase tracking-wider transition-all brutal-btn-shadow brutal-btn-active">
                         ⚡ Beli Sekarang
                     </button>
                 `;
                 grid.appendChild(card);
+                
+                document.getElementById(`btn-${p.id}`).onclick = () => openVariants(p.id);
             });
         }
 
         function openVariants(id) {
             const product = products.find(p => p.id === id);
-            if(!product || !product.variants || product.variants.length === 0) {
-                alert("Aplikasi ini belum memiliki varian paket!");
-                return;
-            }
-            
             document.getElementById('varModalTitle').innerText = product.name;
             const container = document.getElementById('variantListContainer');
             container.innerHTML = '';
 
             product.variants.forEach(v => {
                 const row = document.createElement('div');
-                row.className = "p-4 bg-white border-4 border-slate-950 cursor-pointer transition-all flex justify-between items-center brutal-shadow-sm brutal-btn-active group";
-                row.onclick = () => openPayment(product.name, v.name, v.price);
+                row.className = "p-4 bg-white border-4 border-slate-950 cursor-pointer flex justify-between items-center brutal-shadow-sm brutal-btn-active group mb-2";
                 row.innerHTML = `
                     <div>
                         <p class="font-extrabold text-slate-950 text-sm uppercase group-hover:text-[#A370F7] transition-colors">${v.name}</p>
@@ -232,13 +210,14 @@
                     </div>
                     <span class="bg-[#22C55E] border-2 border-slate-950 font-extrabold text-xs px-2 py-1 text-slate-950">Rp ${v.price.toLocaleString('id-ID')}</span>
                 `;
+                row.onclick = () => openPayment(product.name, v.name, v.price);
                 container.appendChild(row);
             });
-            openModal('variantModal');
+            document.getElementById('variantModal').classList.remove('hidden');
         }
 
         function openPayment(pName, vName, price) {
-            closeModal('variantModal');
+            document.getElementById('variantModal').classList.add('hidden');
             const itemName = `${pName} (${vName})`;
             document.getElementById('payModalItem').innerText = itemName;
             document.getElementById('payModalPrice').innerText = `Rp ${price.toLocaleString('id-ID')}`;
@@ -261,12 +240,14 @@
             const text = `Halo Admin, saya mau konfirmasi pembayaran.%0A%0A*Detail Pembelian:*%0A- Produk: ${pName}%0A- Varian: ${vName}%0A- Total: Rp ${price.toLocaleString('id-ID')}%0A%0ABerikut Lampiran Bukti Transfer Pembayarannya min!`;
             document.getElementById('waSubmitBtn').onclick = () => window.open(`https://api.whatsapp.com/send?phone=${ADMIN_WHATSAPP}&text=${text}`, '_blank');
             
-            openModal('paymentModal');
+            document.getElementById('paymentModal').classList.remove('hidden');
         }
 
-        function openModal(id) { document.getElementById(id).classList.remove('hidden'); }
         function closeModal(id) { document.getElementById(id).classList.add('hidden'); }
-        window.onclick = (e) => ['variantModal', 'paymentModal'].forEach(id => { if(e.target === document.getElementById(id)) closeModal(id) });
+        window.onclick = (e) => {
+            if (e.target.id === 'variantModal') closeModal('variantModal');
+            if (e.target.id === 'paymentModal') closeModal('paymentModal');
+        };
     </script>
 </body>
 </html>
