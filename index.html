@@ -3,99 +3,123 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NexusDigital - Premium Apps Hub</title>
+    <title>NexusDigital - Neubrutalist Apps Hub</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;700;800&display=swap" rel="stylesheet">
     <style>
-        html, body { overflow-x: hidden; width: 100%; }
-        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #05070f; }
-        .glass-card { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); }
-        .neon-glow { box-shadow: 0 0 50px -10px rgba(6, 182, 212, 0.2); }
+        body { 
+            font-family: 'Plus Jakarta Sans', sans-serif; 
+            background-color: #FFFDF6; /* Khas Neubrutalism: Warm Off-White */
+            color: #020617;
+        }
+        /* Utility class untuk Hard Shadow khas Neubrutalism */
+        .brutal-shadow {
+            box-shadow: 6px 6px 0px 0px #020617;
+        }
+        .brutal-shadow-sm {
+            box-shadow: 4px 4px 0px 0px #020617;
+        }
+        .brutal-btn-shadow {
+            box-shadow: 4px 4px 0px 0px #020617;
+        }
+        /* Efek klik tombol fisik mantul */
+        .brutal-btn-active:active {
+            transform: translate(4px, 4px);
+            box-shadow: 0px 0px 0px 0px #020617;
+        }
     </style>
 </head>
-<body class="text-slate-200 min-h-screen relative selection:bg-cyan-500 selection:text-slate-950">
+<body class="min-h-screen pb-24 selection:bg-[#4DEEEA] selection:text-slate-950">
 
-    <!-- Container Khusus Blob Biar Gak Bocor ke Kanan di HP -->
-    <div class="absolute inset-0 overflow-hidden pointer-events-none z-0">
-        <div class="absolute top-[-20%] left-[-10%] w-[500px] h-[500px] bg-cyan-500/10 rounded-full blur-[120px]"></div>
-        <div class="absolute bottom-[20%] right-[-10%] w-[600px] h-[600px] bg-indigo-600/10 rounded-full blur-[150px]"></div>
-    </div>
-
-    <!-- Header Navbar -->
-    <nav class="glass-card border-b border-white/5 sticky top-0 z-40">
-        <div class="max-w-6xl mx-auto px-6 py-5 flex justify-between items-center">
-            <div class="flex items-center gap-2.5">
-                <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-cyan-400 to-indigo-600 flex items-center justify-center font-extrabold text-slate-950 shadow-lg shadow-cyan-500/20">N</div>
-                <h1 class="text-xl font-extrabold tracking-tight text-white">Nexus<span class="text-cyan-400">Digital</span></h1>
+    <nav class="bg-[#FFFDF6] border-b-4 border-slate-950 sticky top-0 z-40">
+        <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center gap-3 bg-[#A370F7] border-4 border-slate-950 p-2 brutal-shadow-sm">
+                <span class="font-extrabold text-slate-950 text-xl tracking-tighter">N.D</span>
             </div>
-            <span class="text-xs font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 px-3 py-1.5 rounded-full flex items-center gap-1.5">⚡ Auto-Process</span>
+            <h1 class="text-xl sm:text-2xl font-extrabold tracking-tighter text-slate-950 uppercase hidden sm:block">
+                Nexus<span class="bg-[#FFDE4D] px-1 border-2 border-slate-950 ml-1">Digital</span>
+            </h1>
+            <span class="text-xs font-extrabold bg-[#22C55E] text-slate-950 border-4 border-slate-950 px-4 py-2 brutal-shadow-sm uppercase tracking-wider">
+                ⚡ LIVE PROCESS
+            </span>
         </div>
     </nav>
 
-    <!-- Main Container -->
-    <main class="max-w-6xl mx-auto px-6 py-16 relative z-10">
-        <header class="text-center mb-16">
-            <span class="px-3 py-1 text-[10px] font-bold tracking-widest text-cyan-400 uppercase bg-cyan-500/10 rounded-full border border-cyan-500/20">⚡ Jam Kerja: 8:00 - 21:00 ⚡</span>
-            <h2 class="text-4xl md:text-5xl font-extrabold text-white tracking-tight mt-4 mb-3">Rajanya Apps Premium Murah Bergaransi</h2>
-            <p class="text-slate-400 max-w-sm mx-auto text-sm">Dapatkan akses penuh ke fitur eksklusif di apps premium dengan cepat, aman, dan 100% bergaransi. Tingkatkan alur kerja digitalmu sekarang juga.</p>
+    <main class="max-w-6xl mx-auto px-6 py-16">
+        <header class="bg-[#4DEEEA] border-4 border-slate-950 p-8 brutal-shadow text-center mb-16 max-w-3xl mx-auto">
+            <span class="px-3 py-1 text-xs font-extrabold tracking-widest text-slate-950 uppercase bg-white border-2 border-slate-950">
+                🛒 BRUTAL DIGITAL STORE
+            </span>
+            <h2 class="text-3xl md:text-5xl font-extrabold text-slate-950 tracking-tighter uppercase mt-4 mb-3">
+                Apps Premium Murah Bergaransi
+            </h2>
+            <p class="text-slate-900 font-medium text-sm md:text-base max-w-xl mx-auto border-t-2 border-slate-950 pt-3 mt-3">
+                Dapatkan akses penuh fitur eksklusif apps premium dengan cepat, aman, dan 100% bergaransi. Upgrade alur kerja digitalmu sekarang!
+            </p>
+            <div class="inline-block mt-4 bg-[#FF6B6B] border-2 border-slate-950 px-4 py-1.5 font-extrabold text-xs text-white uppercase tracking-wider">
+                ⚡ Jam Kerja: 8:00 - 21:00 ⚡
+            </div>
         </header>
 
-        <!-- Fixed typo sm:sm:grid-cols-2 -->
-        <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            <div class="col-span-full text-center py-12 text-slate-500 text-sm">Sedang memuat produk premium...</div>
+        <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="col-span-full text-center py-12 font-extrabold text-slate-600 text-base uppercase">
+                ⏳ Membongkar Database Produk...
+            </div>
         </div>
     </main>
 
-    <!-- STEP 1: VARIANT MODAL (AUTO-FIT ON MOBILE) -->
-    <div id="variantModal" class="fixed inset-0 bg-slate-950/80 backdrop-blur-md z-50 flex items-center justify-center p-4 hidden">
-        <div class="glass-card border border-white/10 rounded-3xl w-[calc(100%-1rem)] sm:w-full sm:max-w-md overflow-hidden neon-glow">
-            <div class="px-5 py-4 sm:px-6 sm:py-5 border-b border-white/5 flex justify-between items-center">
+    <div id="variantModal" class="fixed inset-0 bg-slate-950/40 backdrop-blur-none z-50 flex items-center justify-center p-4 hidden relative">
+        <div class="bg-white border-4 border-slate-950 w-full max-w-md overflow-hidden brutal-shadow">
+            <div class="px-6 py-5 border-b-4 border-slate-950 bg-[#FFDE4D] flex justify-between items-center">
                 <div>
-                    <h3 class="font-extrabold text-lg text-white" id="varModalTitle">-</h3>
-                    <p class="text-xs text-slate-400 mt-0.5">Pilih varian paket durasi aplikasi</p>
+                    <h3 class="font-extrabold text-xl text-slate-950 uppercase tracking-tight" id="varModalTitle">-</h3>
+                    <p class="text-xs text-slate-800 font-bold mt-0.5">Tentukan paket durasi aplikasi kamu</p>
                 </div>
-                <button onclick="closeModal('variantModal')" class="text-slate-400 hover:text-white text-2xl font-light">&times;</button>
+                <button onclick="closeModal('variantModal')" class="bg-white hover:bg-rose-400 border-2 border-slate-950 w-8 h-8 flex items-center justify-center font-extrabold transition-colors text-lg shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] active:translate-x-[2px] active:translate-y-[2px] active:shadow-none">&times;</button>
             </div>
-            <div class="p-5 sm:p-6 space-y-3" id="variantListContainer"></div>
+            <div class="p-6 space-y-4 bg-[#FFFDF6]" id="variantListContainer"></div>
         </div>
     </div>
 
-    <!-- STEP 2: PAYMENT MODAL (AUTO-FIT ON MOBILE) -->
-    <div id="paymentModal" class="fixed inset-0 bg-slate-950/80 backdrop-blur-md z-50 flex items-center justify-center p-4 hidden">
-        <div class="glass-card border border-white/10 rounded-3xl w-[calc(100%-1rem)] sm:w-full sm:max-w-md overflow-hidden neon-glow">
-            <div class="px-5 py-4 sm:px-6 sm:py-5 border-b border-white/5 flex justify-between items-center">
+    <div id="paymentModal" class="fixed inset-0 bg-slate-950/40 backdrop-blur-none z-50 flex items-center justify-center p-4 hidden">
+        <div class="bg-white border-4 border-slate-950 w-full max-w-md overflow-hidden brutal-shadow">
+            <div class="px-6 py-5 border-b-4 border-slate-950 bg-[#4DEEEA] flex justify-between items-center">
                 <div>
-                    <h3 class="font-extrabold text-lg text-white">Invoice Pembayaran</h3>
-                    <p class="text-xs text-slate-400 mt-0.5">Silahkan selesaikan transfer keuangan</p>
+                    <h3 class="font-extrabold text-xl text-slate-950 uppercase tracking-tight">Invoice Tagihan</h3>
+                    <p class="text-xs text-slate-800 font-bold mt-0.5">Selesaikan transfer keuangan berikut</p>
                 </div>
-                <button onclick="closeModal('paymentModal')" class="text-slate-400 hover:text-white text-2xl font-light">&times;</button>
+                <button onclick="closeModal('paymentModal')" class="bg-white hover:bg-rose-400 border-2 border-slate-950 w-8 h-8 flex items-center justify-center font-extrabold transition-colors text-lg shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] active:translate-x-[2px] active:translate-y-[2px] active:shadow-none">&times;</button>
             </div>
             
-            <div class="p-5 sm:p-6 max-h-[60vh] overflow-y-auto space-y-4">
-                <div class="bg-white/5 border border-white/5 p-4 rounded-2xl">
-                    <p class="text-[10px] text-slate-400 uppercase font-bold tracking-wider">Produk Terpilih</p>
-                    <p id="payModalItem" class="font-bold text-white text-base mt-0.5">-</p>
-                    <p id="payModalPrice" class="text-xl font-extrabold text-cyan-400 mt-1">Rp 0</p>
+            <div class="p-6 max-h-[60vh] overflow-y-auto space-y-5 bg-[#FFFDF6]">
+                <div class="bg-white border-4 border-slate-950 p-4 brutal-shadow-sm">
+                    <p class="text-[10px] text-slate-500 uppercase font-extrabold tracking-wider">Item Yang Dipilih</p>
+                    <p id="payModalItem" class="font-extrabold text-slate-950 text-lg mt-0.5">-</p>
+                    <span id="payModalPrice" class="inline-block bg-[#22C55E] border-2 border-slate-950 text-slate-950 font-extrabold text-base px-3 py-1 mt-2">Rp 0</span>
                 </div>
 
-                <!-- QRIS DISPLAY -->
-                <div class="p-4 bg-white/[0.02] border border-white/5 rounded-2xl flex flex-col items-center justify-center">
-                    <span class="text-[10px] font-extrabold text-cyan-400 tracking-wider uppercase mb-3">QRIS MANUAL PAYMENT</span>
-                    <div class="p-3 bg-white rounded-2xl shadow-xl shadow-cyan-500/5">
-                        <img id="qris-image-display" src="" alt="QRIS Code" class="w-36 h-36 sm:w-44 sm:h-44 object-contain">
+                <div class="p-5 bg-white border-4 border-slate-950 brutal-shadow-sm flex flex-col items-center justify-center">
+                    <span class="text-xs font-extrabold text-slate-950 bg-[#FF6B6B] border-2 border-slate-950 px-3 py-1 tracking-wider uppercase mb-4">
+                        QRIS MANUAL PAYMENT
+                    </span>
+                    <div class="p-3 bg-white border-4 border-slate-950 shadow-none">
+                        <img id="qris-image-display" src="" alt="QRIS Code" class="w-40 h-40 object-contain">
                     </div>
-                    <p class="text-[9px] text-slate-500 mt-2.5 text-center leading-relaxed">Scan menggunakan GoPay, DANA, OVO, ShopeePay,<br>atau M-Banking pilihan Anda.</p>
+                    <p class="text-[10px] text-slate-800 font-bold mt-3 text-center leading-tight">
+                        Scan via GoPay, DANA, OVO, ShopeePay, atau M-Banking.
+                    </p>
                 </div>
 
-                <!-- DYNAMIC BANK LIST -->
-                <p class="text-xs font-bold text-slate-400 uppercase tracking-wider pt-2">Atau Transfer Manual Ke Rekening:</p>
-                <div class="space-y-2" id="bank-list"></div>
+                <p class="text-xs font-extrabold text-slate-950 uppercase tracking-wider border-b-2 border-slate-950 pb-1">
+                    Atau Transfer Manual:
+                </p>
+                <div class="space-y-3" id="bank-list"></div>
             </div>
             
-            <div class="p-5 sm:p-6 border-t border-white/5 bg-slate-950/40">
-                <button id="waSubmitBtn" class="w-full bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-400 hover:to-teal-500 text-slate-950 font-extrabold py-4 rounded-2xl transition-all flex justify-center items-center gap-2 shadow-lg shadow-emerald-500/10 text-sm">
-                    Saya Sudah Membayar
+            <div class="p-6 border-t-4 border-slate-950 bg-white flex">
+                <button id="waSubmitBtn" class="w-full bg-[#22C55E] hover:bg-[#1ea750] border-4 border-slate-950 text-slate-950 font-extrabold py-4 rounded-xl text-sm uppercase tracking-wider transition-all brutal-btn-shadow brutal-btn-active">
+                    🚀 Saya Sudah Membayar
                 </button>
             </div>
         </div>
@@ -103,18 +127,16 @@
 
     <script>
         // =========================================================================
-        // ⚙️ 1. CONFIG UTAMA SUPABASE & WHATSAPP
+        // ⚙️ CONFIG UTAMA SUPABASE & WHATSAPP (Sama Persis Seperti Sebelumnya)
         // =========================================================================
         const SUPABASE_URL = "https://hxyljdmecmchbmtevfxs.supabase.co";
         const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imh4eWxqZG1lY21jaGJtdGV2ZnhzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODQyMDY0MTgsImV4cCI6MjA5OTc4MjQxOH0.MrwdBPEro83leZzDfe19jbedMXBIup3MpWB9M2KbR64";
         const ADMIN_WHATSAPP = "62895375028336"; 
         const QRIS_IMAGE_URL = "https://www.image2url.com/r2/default/files/1784215152086-c376cc0a-2db5-4a5f-8d82-10dea62bcf6c.png";
 
-        // ⚙️ 2. CONFIG REKENING PEMBAYARAN
-        // =========================================================================
         const REKENING_LIST = [
-            { bank: "GOPAY", nomor: "081224728064", nama: "Farhan Nugraha", warnaText: "text-emerald-400" },
-            { bank: "DANA", nomor: "081224728064", nama: "Farhan Nugraha", warnaText: "text-blue-400" }
+            { bank: "GOPAY", nomor: "081224728064", nama: "Farhan Nugraha", warnaBg: "bg-[#22C55E]" },
+            { bank: "DANA", nomor: "081224728064", nama: "Farhan Nugraha", warnaBg: "bg-[#4DEEEA]" }
         ];
         // =========================================================================
 
@@ -134,7 +156,7 @@
             try {
                 const { data, error } = await _supabase.from('store_data').select('products_json').single();
                 if (error) {
-                    document.getElementById('product-grid').innerHTML = `<p class="col-span-full text-center text-rose-400 text-xs p-4">Gagal mengambil data: ${error.message}</p>`;
+                    document.getElementById('product-grid').innerHTML = `<p class="col-span-full text-center text-rose-600 font-bold p-4">Gagal mengambil data: ${error.message}</p>`;
                     return;
                 }
                 if (data) {
@@ -142,7 +164,7 @@
                     renderStore();
                 }
             } catch (err) {
-                document.getElementById('product-grid').innerHTML = `<p class="col-span-full text-center text-rose-400 text-xs p-4">Terjadi gangguan koneksi ke database.</p>`;
+                document.getElementById('product-grid').innerHTML = `<p class="col-span-full text-center text-rose-600 font-bold p-4">Terjadi gangguan koneksi database.</p>`;
             }
         }
 
@@ -151,7 +173,7 @@
             grid.innerHTML = '';
             
             if(!products || products.length === 0) {
-                grid.innerHTML = `<p class="col-span-full text-center text-slate-500 text-xs bg-white/5 border border-white/5 p-6 rounded-2xl italic">Belum ada produk terpasang. Silakan tambahkan melalui Admin Panel.</p>`;
+                grid.innerHTML = `<p class="col-span-full text-center text-slate-700 bg-white border-4 border-slate-950 p-6 font-extrabold brutal-shadow uppercase">Toko Kosong. Masukkan produk lewat Admin Panel!</p>`;
                 return;
             }
             
@@ -159,19 +181,30 @@
                 const prices = p.variants && p.variants.length > 0 ? p.variants.map(v => v.price) : [0];
                 const minPrice = Math.min(...prices);
                 
+                // Menerjemahkan warna fintech lama ke warna neubrutalism pop yang solid
+                let brutalColor = "bg-[#FFDE4D]"; // Default Kuning
+                if (p.color.includes("red") || p.color.includes("rose")) brutalColor = "bg-[#FF6B6B]";
+                if (p.color.includes("blue") || p.color.includes("indigo")) brutalColor = "bg-[#A370F7]";
+                if (p.color.includes("green") || p.color.includes("emerald")) brutalColor = "bg-[#22C55E]";
+                if (p.color.includes("purple") || p.color.includes("pink")) brutalColor = "bg-[#F770A3]";
+
                 const card = document.createElement('div');
-                card.className = "glass-card border border-white/5 rounded-3xl p-6 flex flex-col justify-between hover:border-cyan-500/30 transition-all duration-300 group relative overflow-hidden shadow-xl";
+                card.className = "bg-white border-4 border-slate-950 p-6 flex flex-col justify-between brutal-shadow transition-all duration-200 hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[8px_8px_0px_0px_rgba(2,6,23,1)] group";
                 card.innerHTML = `
-                    <div class="relative z-10">
-                        <div class="w-12 h-12 bg-gradient-to-tr ${p.color || 'from-cyan-500 to-blue-600'} rounded-2xl flex items-center justify-center font-extrabold text-slate-950 text-xl mb-5 shadow-md">${p.badge || 'P'}</div>
-                        <h3 class="text-lg font-bold text-white group-hover:text-cyan-400 transition-colors">${p.name}</h3>
-                        <p class="text-slate-400 text-xs mt-1.5 leading-relaxed">${p.desc}</p>
-                        <div class="mt-6 pt-4 border-t border-white/5">
-                            <span class="text-[9px] text-slate-500 font-bold uppercase tracking-wider block">Mulai Dari</span>
-                            <span class="text-xl font-extrabold text-white mt-0.5 block">Rp ${minPrice.toLocaleString('id-ID')}</span>
+                    <div>
+                        <div class="w-14 h-14 ${brutalColor} border-4 border-slate-950 flex items-center justify-center font-extrabold text-slate-950 text-2xl mb-5 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] group-hover:rotate-3 transition-transform">
+                            ${p.badge || 'P'}
+                        </div>
+                        <h3 class="text-xl font-extrabold text-slate-950 uppercase tracking-tight">${p.name}</h3>
+                        <p class="text-slate-800 font-bold text-xs mt-2 bg-slate-100 p-2 border-2 border-slate-950 border-dashed">${p.desc}</p>
+                        <div class="mt-6 pt-4 border-t-2 border-slate-950">
+                            <span class="text-[10px] text-slate-600 font-extrabold uppercase block tracking-wider">Mulai Dari:</span>
+                            <span class="inline-block bg-[#FFDE4D] border-2 border-slate-950 text-slate-950 font-extrabold text-lg px-2.5 py-0.5 mt-1">Rp ${minPrice.toLocaleString('id-ID')}</span>
                         </div>
                     </div>
-                    <button onclick="openVariants('${p.id}')" class="relative z-10 w-full mt-6 bg-white/5 hover:bg-gradient-to-r hover:from-cyan-500 hover:to-indigo-600 text-white hover:text-slate-950 font-bold py-3.5 rounded-2xl border border-white/10 hover:border-transparent transition-all duration-300 text-xs tracking-wide">Beli Sekarang</button>
+                    <button onclick="openVariants('${p.id}')" class="w-full mt-6 bg-[#A370F7] hover:bg-[#8e52e8] text-slate-950 font-extrabold py-3.5 border-4 border-slate-950 rounded-xl text-xs uppercase tracking-wider transition-all brutal-btn-shadow brutal-btn-active">
+                        ⚡ Beli Sekarang
+                    </button>
                 `;
                 grid.appendChild(card);
             });
@@ -190,14 +223,14 @@
 
             product.variants.forEach(v => {
                 const row = document.createElement('div');
-                row.className = "p-4 bg-white/5 hover:bg-white/10 border border-white/5 hover:border-cyan-500/30 rounded-2xl cursor-pointer transition-all flex justify-between items-center group";
+                row.className = "p-4 bg-white border-4 border-slate-950 cursor-pointer transition-all flex justify-between items-center brutal-shadow-sm brutal-btn-active group";
                 row.onclick = () => openPayment(product.name, v.name, v.price);
                 row.innerHTML = `
                     <div>
-                        <p class="font-bold text-white text-sm group-hover:text-cyan-400 transition-colors">${v.name}</p>
-                        <p class="text-[10px] text-slate-400 mt-0.5">${v.desc || 'Premium Account'}</p>
+                        <p class="font-extrabold text-slate-950 text-sm uppercase group-hover:text-[#A370F7] transition-colors">${v.name}</p>
+                        <p class="text-[10px] text-slate-700 font-bold mt-0.5">${v.desc || 'Premium Account'}</p>
                     </div>
-                    <p class="font-extrabold text-sm text-white">Rp ${v.price.toLocaleString('id-ID')}</p>
+                    <span class="bg-[#22C55E] border-2 border-slate-950 font-extrabold text-xs px-2 py-1 text-slate-950">Rp ${v.price.toLocaleString('id-ID')}</span>
                 `;
                 container.appendChild(row);
             });
@@ -215,11 +248,11 @@
             listContainer.innerHTML = '';
             REKENING_LIST.forEach(rek => {
                 listContainer.innerHTML += `
-                    <div class="p-3.5 bg-white/[0.02] border border-white/5 rounded-2xl flex justify-between items-center">
+                    <div class="p-3.5 bg-white border-4 border-slate-950 brutal-shadow-sm flex justify-between items-center">
                         <div>
-                            <span class="text-[10px] font-extrabold ${rek.warnaText} tracking-wider">${rek.bank}</span>
-                            <p class="text-sm font-bold text-white mt-0.5">${rek.nomor}</p>
-                            <p class="text-[9px] text-slate-500">a.n ${rek.nama}</p>
+                            <span class="text-[10px] font-extrabold ${rek.warnaBg} border-2 border-slate-950 px-2 py-0.5 text-slate-950 tracking-wider">${rek.bank}</span>
+                            <p class="text-sm font-extrabold text-slate-950 mt-1.5">${rek.nomor}</p>
+                            <p class="text-[10px] text-slate-600 font-bold">a.n ${rek.nama}</p>
                         </div>
                     </div>
                 `;
