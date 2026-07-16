@@ -216,6 +216,29 @@
         function openModal(id) { document.getElementById(id).classList.remove('hidden'); }
         function closeModal(id) { document.getElementById(id).classList.add('hidden'); }
         window.onclick = (e) => ['variantModal', 'paymentModal'].forEach(id => { if(e.target === document.getElementById(id)) closeModal(id) });
-    </script>
+    let _supabase;
+        let products = [];
+
+        // Safety Initializer dengan UI Alert
+        try {
+            if (SUPABASE_URL.includes("YOUR_PROJECT_ID") || SUPABASE_KEY.includes("YOUR_ANON_KEY")) {
+                document.getElementById('product-grid').innerHTML = `<p class="col-span-full text-center text-rose-400 text-xs bg-rose-500/10 border border-rose-500/20 p-4 rounded-xl">⚠️ Konfigurasi SUPABASE_URL atau KEY di file nexus-store belum kamu ubah!</p>`;
+            } else {
+                _supabase = supabase.createClient(SUPABASE_URL, SUPABASE_KEY, {
+                    auth: { persistSession: false }
+                });
+                fetchProducts();
+            }
+        } catch (err) {
+            // JIKA TERJADI ERROR INISIALISASI, MAKA AKAN DI-RENDER KE LAYAR
+            document.getElementById('product-grid').innerHTML = `
+                <div class="col-span-full text-center bg-rose-500/10 border border-rose-500/20 p-5 rounded-2xl">
+                    <p class="text-rose-400 text-sm font-bold">⚠️ Gagal terhubung ke database!</p>
+                    <p class="text-slate-400 text-xs mt-1">Detail: ${err.message}</p>
+                    <p class="text-[10px] text-slate-500 mt-2">Periksa kembali apakah SUPABASE_URL kamu sudah pakai 'https://' di file nexus-store.</p>
+                </div>
+            `;
+            console.error(err);
+        }
 </body>
 </html>
